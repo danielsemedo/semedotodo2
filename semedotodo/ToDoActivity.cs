@@ -187,6 +187,7 @@ namespace semedotodo
             try {
 				// Update the new item in the local store.
                 await todoTable.UpdateAsync(item);
+                throw new System.ApplicationException("erro");
 #if OFFLINE_SYNC_ENABLED
                 // Send changes to the mobile app backend.
 				await SyncAsync();
@@ -198,6 +199,8 @@ namespace semedotodo
             }
             catch (Exception e) {
                 CreateAndShowDialog(e, "Error");
+                throw new System.ApplicationException("erro");
+                Crashes.GenerateTestCrash();
             }
         }
 
@@ -229,6 +232,8 @@ namespace semedotodo
             }
             catch (Exception e) {
                 CreateAndShowDialog(e, "Error");
+                throw new System.ApplicationException("erro");
+                Crashes.GenerateTestCrash();
             }
 
             textNewToDo.Text = "";

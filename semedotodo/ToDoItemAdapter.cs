@@ -71,10 +71,17 @@ namespace semedotodo
             Analytics.TrackEvent("deletou item");
             items.Remove (item);
 			NotifyDataSetChanged ();
+            Crashes.GenerateTestCrash();
+            
             var a = 0;
             var b = 0;
 
             var res = a / b;
+
+            
+
+       
+
 		}
         
 
